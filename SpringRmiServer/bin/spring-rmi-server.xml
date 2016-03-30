@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>    
+<!DOCTYPE beans PUBLIC "-//SPRING/DTD BEAN/EN"    
+  "http://www.springframework.org/dtd/spring-beans.dtd">    
+  
+<beans>    
+    <bean id="helloService" class="com.eshin.rmi.HelloServiceImpl"/>   
+  
+    <!--RmiServiceExporter显示地支持使用RMI调用器暴露任何非RMI服务-->   
+    <bean id="serviceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">   
+        <property name="service" ref="helloService"/>   
+        <property name="serviceInterface" value="com.eshin.rmi.HelloService"/>   
+        <!--定义要暴露的服务名可以与输出的bean不同名，客户端通过这个名字来调用服务-->   
+        <property name="serviceName" value ="HelloService"/>   
+        <!--覆盖RMI注册端口号(1099)，通常应用服务器也会维护RMI注册，最好不要冲突-->   
+        <property name="registryPort" value="1991"/>   
+    </bean>   
+       
+</beans>  
