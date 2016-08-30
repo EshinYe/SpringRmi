@@ -5,7 +5,7 @@
 <beans>    
     <bean id="helloService" class="com.eshin.rmi.HelloServiceImpl"/>   
   
-    <!--RmiServiceExporter显示地支持使用RMI调用器暴露任何非RMI服务-->   
+    <!--RmiServiceExporter显示地支持使用RMI调用器暴露任何非RMI服务ff-->   
     <bean id="serviceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">   
         <property name="service" ref="helloService"/>   
         <property name="serviceInterface" value="com.eshin.rmi.HelloService"/>   
